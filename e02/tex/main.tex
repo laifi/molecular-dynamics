@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{pgfplots} 
+\usepackage{pgf}
+\pgfplotsset{compat=1.14}
+\usetikzlibrary{arrows, automata, positioning}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{subcaption}
+\usepackage{diagbox}
+
+\newcommand{\exnum}{02} % Enter the problem set number here!
+\newcommand{\tilda}{{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}}
+
+\newcounter{problem}[section]
+\newenvironment{prob}[1]
+{
+    \refstepcounter{problem}
+    \Large{\textbf{Problem \exnum.\theproblem}  \qquad \textit{#1}}
+    \begin{enumerate}[label=\alph*]
+    \normalsize
+}{
+    \end{enumerate}
+}
+
+
+\title{Exercise \exnum \\ 
+    Molecular Dynamics 2019}
+\author{Benjamin Kurt Miller}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+\begin{prob}{Energy minimisation of force fields}
+\item Gradient and Hessian are defined as 
+
+\begin{align*}
+    \nabla f_{i} &= \frac{\partial f}{\partial x_{i}} \\
+    \mathbf{H}_{i,j}(f) &= \frac{\partial^{2} f}{\partial x_{i} \partial x_{j}}
+\end{align*}
+
+respectively. Given our function $U(x, y)$, the function, gradient, and hessian matrix are defined
+
+\begin{align}
+    U(x,y) &= (x - y)^{4} + 2x^{2} + y^{2} - x + 2y \\
+    \nabla U(x,y) &=
+    \begin{pmatrix}
+        4(x-y)^{3} + 4x - 1 & -4(x-y)^{3} + 2y + 2 \\
+    \end{pmatrix}^{T} \\
+    \mathbf{H}(U(x,y)) &= 
+    \begin{pmatrix}
+        12(x-y)^{2} + 4 & -12(x-y)^{2} \\
+        -12(x-y)^{2} & 12(x-y)^{2} + 2 \\
+    \end{pmatrix}.
+\end{align}
+
+\item 
+
+\begin{figure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{../grad_descent_00.png}
+		\caption{1a}
+		\label{fig:sfig1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{../grad_descent_11.png}
+		\caption{1b}
+		\label{fig:sfig2}
+	\end{subfigure}
+	\caption{plots of....}
+	\label{fig:fig}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{||c c c c||} 
+		\hline
+		Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+		\hline\hline
+		1 & 6 & 87837 & 787 \\ 
+		\hline
+		2 & 7 & 78 & 5415 \\
+		\hline
+		3 & 545 & 778 & 7507 \\
+		\hline
+		4 & 545 & 18744 & 7560 \\
+		\hline
+		5 & 88 & 788 & 6344 \\ [1ex] 
+		\hline
+	\end{tabular}
+\end{center}
+
+
+
+
+
+
+\end{prob}
+
+\end{document}
