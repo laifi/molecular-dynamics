@@ -1,6 +1,12 @@
 # Images
 *.png
 
+# TeX stuff
+*.aux
+*/tex/*.pdf
+*.synctex.gz
+
+
 # PyCharm
 .idea/
 
