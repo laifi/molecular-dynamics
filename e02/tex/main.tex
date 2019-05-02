@@ -17,6 +17,11 @@
 \usepackage{subcaption}
 \usepackage{diagbox}
 
+%%\usepackage[demo]{graphicx}
+%\usepackage[labelformat=parens]{subfig}
+%\usepackage{caption}
+%%\usepackage[inline]{enumitem}
+
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{listings}
@@ -78,8 +83,9 @@ Next we perform gradient descent from a variety of starting locations, all with 
 	x_{k+1} = x_{k} - \tau \nabla f(x_{k}).
 \end{equation}
 
-As the problem suggested writing a python script, I will report the necessary bits of code for the problem next. Afterwards I will report the starting points, number of iterations, and corresponding eps in Table \ref{table:prob02}. You will see that depending on where you start the descent, the algorithm can converge or go to infinity.
+As the problem suggested writing a python script, I will report the necessary bits of code for the problem next. Afterwards I will report the starting points, number of iterations, and corresponding eps in Figure \ref{fig:problem02}. You will see that depending on where you start the descent, the algorithm can converge or go to infinity.
 
+\clearpage
 \begin{lstlisting}[frame=single]  % Start your code-block
 
 def u(x, y):
@@ -108,36 +114,84 @@ def gradient_descent(f, df, x,
 	return np.asarray(steps)
 \end{lstlisting}
 
-\begin{longtable}[]{@{}lll@{}}
-	\toprule
-	Starting point & $n$ number of iterations & eps \tabularnewline
-	\midrule
-	\endhead
-	(1, 1) & 42 & 9.0e-11 \tabularnewline
-	(0, 0) & 38 & 5.9e-11 \tabularnewline
-	(-0.3, 3) & 6 & inf \tabularnewline
-	\bottomrule
-	\caption{Various starting points and result. Note that starting at (-0.3, 3) did not converge, but instead went to infinity. $\tau$ fixed at 0.09.}
-	\label{table:prob02}
-\end{longtable}
+%\begin{longtable}[]{@{}lll@{}}
+%	\toprule
+%	Starting point & $n$ number of iterations & eps \tabularnewline
+%	\midrule
+%	\endhead
+%	(1, 1) & 42 & 9.0e-11 \tabularnewline
+%	(0, 0) & 38 & 5.9e-11 \tabularnewline
+%	(-0.3, 3) & 6 & inf \tabularnewline
+%	\bottomrule
+%	\caption{Various starting points and result. Note that starting at (-0.3, 3) did not converge, but instead went to infinity. $\tau$ fixed at 0.09.}
+%	\label{table:prob02}
+%\end{longtable}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=.45\linewidth]{../grad_descent_00.png}\quad%
+	\begin{minipage}[b][0.4\textheight][c]{.45\linewidth} 
+		\begin{longtable}[]{@{}lll@{}}
+			\toprule
+			Starting point & $n$ number of iterations & eps \tabularnewline
+			\midrule
+			\endhead
+			(1, 1) & 42 & 9.0e-11 \tabularnewline
+			(0, 0) & 38 & 5.9e-11 \tabularnewline
+			(-0.3, 3) & 6 & inf \tabularnewline
+			\bottomrule
+			\caption{Various starting points and result. Note that starting at (-0.3, 3) did not converge, but instead went to infinity. $\tau$ fixed at 0.09.}
+		\end{longtable}
+	\end{minipage}\\[1em]
+	\includegraphics[width=.45\linewidth]{../grad_descent_11.png}\quad%
+	\includegraphics[width=.45\linewidth]{../grad_descent_33.png}
+	\caption{The figures and tables for simple gradient descent.}
+	\label{fig:problem02}
+\end{figure}
+
+
+\clearpage
 \item 
 
 The same process was repeated; however, starting at the same point every time, namely (1, 1), but using different values of $\tau$. Notice that the algorithm can fail to converge in two different ways. It can go to infinity and it can fail to meet the eps requirement.
 
-\begin{longtable}[]{@{}lll@{}}
-	\toprule
-	Tau & $n$ number of iterations & eps \tabularnewline
-	\midrule
-	\endhead
-	0.25 & 16 & inf \tabularnewline
-	0.2 & 1001 & 0.16 \tabularnewline
-	0.009 & 416 & 9.49e-11 \tabularnewline
-	\bottomrule
-	\caption{Every descent started at point (1, 1). Notice which values of tau went to infinity and which did not meet the eps requirement after 1000 steps.}
-	\label{table:prob02}
-\end{longtable}
+%\begin{longtable}[]{@{}lll@{}}
+%	\toprule
+%	Tau & $n$ number of iterations & eps \tabularnewline
+%	\midrule
+%	\endhead
+%	0.25 & 16 & inf \tabularnewline
+%	0.2 & 1001 & 0.16 \tabularnewline
+%	0.009 & 416 & 9.49e-11 \tabularnewline
+%	\bottomrule
+%	\caption{Every descent started at point (1, 1). Notice which values of tau went to infinity and which did not meet the eps requirement after 1000 steps.}
+%	\label{table:prob03}
+%\end{longtable}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=.45\linewidth]{../grad_tau_009.png}\quad%
+	\begin{minipage}[b][0.4\textheight][c]{.45\linewidth} 
+		\begin{longtable}[]{@{}lll@{}}
+			\toprule
+			Tau & $n$ number of iterations & eps \tabularnewline
+			\midrule
+			\endhead
+			0.25 & 16 & inf \tabularnewline
+			0.2 & 1001 & 0.16 \tabularnewline
+			0.009 & 416 & 9.49e-11 \tabularnewline
+			\bottomrule
+			\caption{Every descent started at point (1, 1). Notice which values of tau went to infinity and which did not meet the eps requirement after 1000 steps.}
+			\label{table:prob03}
+		\end{longtable}
+	\end{minipage}\\[1em]
+	\includegraphics[width=.45\linewidth]{../grad_tau_20.png}\quad%
+	\includegraphics[width=.45\linewidth]{../grad_tau_25.png}
+	\caption{The figures and table related to a variety Tau.}
+	\label{fig:problem03}
+\end{figure}
+
+\clearpage
 \item 
 
 Now I will repeat the second problem using the conjugate gradient descent method. In this case, some old gradient information is mixed in with the new gradient information.
@@ -152,7 +206,9 @@ Now I will repeat the second problem using the conjugate gradient descent method
 The code for a function which first performs one gradient descent step followed by conjugate gradient descent afterwards.
 
 \begin{lstlisting}[frame=single]  % Start your code-block
-def conjugate_gradient_descent(f, df, x, rate=0.09, precision=1e-10, max_iters=1000):
+
+def conjugate_gradient_descent(f, df, x, rate=0.09, precision=1e-10, 
+		max_iters=1000):
 	steps = [x]
 	dks = [df(x)]
 	next_x = x
@@ -190,38 +246,41 @@ def conjugate_gradient_descent(f, df, x, rate=0.09, precision=1e-10, max_iters=1
 
 Next we report the same table as in the second problem. We expect the number of iterations to be less at the cost of more memory consumption and slightly more computation.
 
-\begin{longtable}[]{@{}lll@{}}
-	\toprule
-	Starting point & $n$ number of iterations & eps \tabularnewline
-	\midrule
-	\endhead
-	(1, 1) & 22 & 2.8e-11 \tabularnewline
-	(0, 0) & 18 & 3.8e-11 \tabularnewline
-	(-0.3, 3) & 5 & inf \tabularnewline
-	\bottomrule
-	\caption{The same convergence problem arose. Perhaps this was due to an initial gradient descent step? Notice that in each case, the minimum was found more quickly.}
-	\label{table:prob02}
-\end{longtable}
+%\begin{longtable}[]{@{}lll@{}}
+%	\toprule
+%	Starting point & $n$ number of iterations & eps \tabularnewline
+%	\midrule
+%	\endhead
+%	(1, 1) & 22 & 2.8e-11 \tabularnewline
+%	(0, 0) & 18 & 3.8e-11 \tabularnewline
+%	(-0.3, 3) & 5 & inf \tabularnewline
+%	\bottomrule
+%	\caption{The same convergence problem arose. Perhaps this was due to an initial gradient descent step? Notice that in each case, the minimum was found more quickly.}
+%	\label{table:prob04}
+%\end{longtable}
 
 \begin{figure}
-	\begin{subfigure}{.5\textwidth}
-		\centering
-		\includegraphics[width=.8\linewidth]{../grad_descent_00.png}
-		\caption{1a}
-		\label{fig:sfig1}
-	\end{subfigure}%
-	\begin{subfigure}{.5\textwidth}
-		\centering
-		\includegraphics[width=.8\linewidth]{../grad_descent_11.png}
-		\caption{1b}
-		\label{fig:sfig2}
-	\end{subfigure}
-	\caption{plots of....}
-	\label{fig:fig}
+	\centering
+	\includegraphics[width=.45\linewidth]{../conj_grad_descent_00.png}\quad%
+	\begin{minipage}[b][0.4\textheight][c]{.45\linewidth} 
+		\begin{longtable}[]{@{}lll@{}}
+			\toprule
+			Starting point & $n$ number of iterations & eps \tabularnewline
+			\midrule
+			\endhead
+			(1, 1) & 22 & 2.8e-11 \tabularnewline
+			(0, 0) & 18 & 3.8e-11 \tabularnewline
+			(-0.3, 3) & 5 & inf \tabularnewline
+			\bottomrule
+			\caption{The same convergence problem arose. Perhaps this was due to an initial gradient descent step? Notice that in each case, the minimum was found more quickly.}
+			\label{table:prob04}
+		\end{longtable}
+	\end{minipage}\\[1em]
+	\includegraphics[width=.45\linewidth]{../conj_grad_descent_11.png}\quad%
+	\includegraphics[width=.45\linewidth]{../conj_grad_descent_33.png}
+	\caption{The figures and table for conjugate gradient descent.}
+	\label{fig:problem04}
 \end{figure}
-
-
-
 
 
 
