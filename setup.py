@@ -5,4 +5,5 @@ setup(
     version="0.0.0",
     license="MIT",
     packages=find_packages(),
+    install_requires=["matplotlib", "numpy"]
 )
