@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{pgfplots} 
+\usepackage{pgf}
+\pgfplotsset{compat=1.14}
+\usetikzlibrary{arrows, automata, positioning}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{subcaption}
+\usepackage{diagbox}
+
+%%\usepackage[demo]{graphicx}
+%\usepackage[labelformat=parens]{subfig}
+%\usepackage{caption}
+%%\usepackage[inline]{enumitem}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{listings}
+\lstset{language=Python}
+
+
+\newcommand{\exnum}{04} % Enter the problem set number here!
+\newcommand{\tilda}{{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}}
+
+\newcounter{problem}[section]
+\newenvironment{prob}[1]
+{
+    \refstepcounter{problem}
+    \Large{\textbf{Problem \exnum.\theproblem}  \qquad \textit{#1}}
+    \begin{enumerate}[label=\alph*]
+    \normalsize
+}{
+    \end{enumerate}
+}
+
+
+\title{Exercise \exnum \\ 
+    Molecular Dynamics 2019}
+\author{Benjamin Kurt Miller}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+\begin{prob}{Download a PDB file and visualize it in VMD}
+\item I downloaded the Trimeric Structure of Langerin known in RCSB PDB as 3KQG. The pdb was cleaned for presentation using the following commands. This should leave a single "chain" or "protein monomer" without water, ions, or extraneous information as requested in the assignment.
+
+\lstset{language=bash}
+\begin{lstlisting}
+grep "B" 3kqg.pdb > chain_b.pdb
+grep -v "HOH" chain_b.pdb > chain_b.pdb
+grep -v "HETATM" chain_b.pdb > chain_b.pdb
+\end{lstlisting}
+
+The requested procedure was followed and the rendered image from VMD is included in figure \ref{fig:render}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.5\linewidth]{../3kqg/prot.png}
+	\caption{Chain B rendered in VMD.}
+	\label{fig:render}
+\end{figure}
+
+\end{prob}
+
+\begin{prob}{Structure minimization}
+	\item 
+\end{prob}
+
+\begin{prob}{NVE ensemble}
+	\item 
+\end{prob}
+
+\begin{prob}{NVT ensemble}
+	\item 
+\end{prob}
+
+\begin{prob}{NPT ensemble}
+	\item 
+\end{prob}
+
+\begin{prob}{Production MD run}
+	\item 
+\end{prob}
+
+\end{document}

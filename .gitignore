@@ -1,5 +1,6 @@
 # Images
 *.png
+*.bmp
 
 # TeX stuff
 *.aux
