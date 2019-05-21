@@ -45,7 +45,7 @@
 
 \title{Exercise \exnum \\ 
     Molecular Dynamics 2019}
-\author{Benjamin Kurt Miller}
+\author{Benjamin Kurt Miller and Lauren Green}
 \date{\today}
 
 \begin{document}
@@ -53,20 +53,20 @@
 
 
 \begin{prob}{Download a PDB file and visualize it in VMD}
-\item I downloaded the Trimeric Structure of Langerin known in RCSB PDB as 3KQG. The pdb was cleaned for presentation using the following commands. This should leave a single "chain" or "protein monomer" without water, ions, or extraneous information as requested in the assignment.
+\item I downloaded the Trimeric Structure of Langerin known in RCSB PDB as 3p5g. The pdb was cleaned for presentation using the following commands. This should leave a single "chain" or "protein monomer" without water, ions, or extraneous information as requested in the assignment.
 
 \lstset{language=bash}
 \begin{lstlisting}
-grep "B" 3kqg.pdb > chain_b.pdb
+grep "B" 3p5g.pdb > chain_b.pdb
 grep -v "HOH" chain_b.pdb > chain_b.pdb
 grep -v "HETATM" chain_b.pdb > chain_b.pdb
 \end{lstlisting}
 
-The requested procedure was followed and the rendered image from VMD is included in figure \ref{fig:render}
+The requested procedure was followed and the rendered image from VMD is included in Figure \ref{fig:render}.
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=.5\linewidth]{../3kqg/prot.png}
+	\includegraphics[width=.5\linewidth]{../3p5g/3p5g.png}
 	\caption{Chain B rendered in VMD.}
 	\label{fig:render}
 \end{figure}
