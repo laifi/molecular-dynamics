@@ -1,8 +1,8 @@
 ; Parameters describing what to do, when to stop and what to save
 integrator	= steep		; Algorithm (steep = steepest descent minimization)
 emtol		= 200.0  	; Stop minimization when the maximum force < 1000.0 kJ/mol/nm
-emstep          = 0.01          ; Energy step size
-nsteps		= 5000	  	; Maximum number of (minimization) steps to perform
+emstep          = 0.012          ; Energy step size
+nsteps		= 10000	  	; Maximum number of (minimization) steps to perform
 
 ; Parameters describing how to find the neighbors of each atom and how to calculate the interactions
 
