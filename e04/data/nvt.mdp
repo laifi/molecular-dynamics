@@ -1,13 +1,13 @@
 define          = -DPOSRES      ; position restrain the protein
 ; Run parameters
 integrator      = md            ; leap-frog integrator
-nsteps          = 100000         ; 0.004 * 100000 = 400 ps
+nsteps          = 25000         ; 0.004 * 100000 = 400 ps
 dt              = 0.004         ; 4 fs
 ; Output control
-nstxout         = 200           ; save coordinates every 0.8 ps
-nstvout         = 200           ; save velocities every 0.8 ps
-nstenergy       = 200           ; save energies every 0.8 ps
-nstlog          = 200           ; update log file every 0.8 ps
+nstxout         = 250           ; save coordinates every 0.8 ps
+nstvout         = 250           ; save velocities every 0.8 ps
+nstenergy       = 250           ; save energies every 0.8 ps
+nstlog          = 250           ; update log file every 0.8 ps
 ; Bond parameters
 continuation    = no            ; first dynamics run
 constraint_algorithm = lincs    ; holonomic constraints 
@@ -28,7 +28,7 @@ fourierspacing  = 0.16          ; grid spacing for FFT
 tcoupl          = V-rescale     ; modified Berendsen thermostat
 tc-grps         = Protein Non-Protein   ; two coupling groups - more accurate
 tau_t           = 0.1   0.1     ; time constant, in ps
-ref_t           = 310   310     ; reference temperature, one for each group, in K
+ref_t           = 300   300     ; reference temperature, one for each group, in K
 ; Pressure coupling is off
 pcoupl          = no            ; no pressure coupling in NVT
 ; Periodic boundary conditions
