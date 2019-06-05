@@ -3,7 +3,8 @@
 echo "Changing dir to ./ignore"
 cd ./ignore/
 echo $(ls)
-source /usr/local/gromacs/bin/GMXRC
+#source /usr/local/gromacs/bin/GMXRC
+source /home/mi/milleb92/mystorage/gromacs/bin/GMXRC
 echo "1" | gmx trjconv -f A.xtc -pbc mol -s A.tpr -o trajoutA.xtc
 echo "4 1" | gmx trjconv -f trajoutA.xtc -fit rot+trans -s referenceA.gro -o trajoutAref.xtc
 echo "1" | gmx trjconv -f B.xtc -pbc mol -s B.tpr -o trajoutB.xtc
