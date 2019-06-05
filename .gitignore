@@ -1,5 +1,6 @@
-# Special Dirs
-*/ignore/
+# Special Dirs and ln
+ignore/
+ignore
 
 # Images
 *.png
